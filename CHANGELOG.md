@@ -19,42 +19,54 @@
 
 # Changelog
 
-## [v0.14.1](https://github.com/apache/arrow-rs-object-store/tree/v0.14.1) (2026-07-10)
+## [v0.14.2](https://github.com/apache/arrow-rs-object-store/tree/v0.14.2) (2026-09-09)
 
-[Full Changelog](https://github.com/apache/arrow-rs-object-store/compare/v0.14.0...v0.14.1)
+[Full Changelog](https://github.com/apache/arrow-rs-object-store/compare/v0.14.1...v0.14.2)
 
 **Implemented enhancements:**
 
-- Cache Azure user delegation key for SAS signing [\#800](https://github.com/apache/arrow-rs-object-store/issues/800)
-- Add deregister to ObjectStoreRegistry [\#795](https://github.com/apache/arrow-rs-object-store/issues/795)
-- Support for S3 dual-stack endpoints [\#779](https://github.com/apache/arrow-rs-object-store/issues/779)
-- Coalesce contiguous ranges in LocalFileSystem::get\_ranges [\#778](https://github.com/apache/arrow-rs-object-store/issues/778)
-- Support for HF Storage Buckets [\#706](https://github.com/apache/arrow-rs-object-store/issues/706)
+- Implement `Clone` for `MicrosoftAzure` [\#824](https://github.com/apache/arrow-rs-object-store/issues/824)
+- Support URLs for jurisdiction-restricted buckets on R2 [\#814](https://github.com/apache/arrow-rs-object-store/issues/814)
+- Lightweight DNS cache with shuffle to prevent DNS flooding [\#726](https://github.com/apache/arrow-rs-object-store/issues/726)
+- Allow presigning object\_store multipart uploads  [\#271](https://github.com/apache/arrow-rs-object-store/issues/271)
+- Allow specifying `Content-Type` when signing object\_store PUT requests [\#270](https://github.com/apache/arrow-rs-object-store/issues/270)
 
 **Fixed bugs:**
 
-- Clippy failing on main [\#798](https://github.com/apache/arrow-rs-object-store/issues/798)
-- Upgrade quick-xml to resolve RUSTSEC-2026-0194 and RUSTSEC-2026-0195 [\#786](https://github.com/apache/arrow-rs-object-store/issues/786)
-- InMemory and LocalFileSystem return unquoted ETags, violating RFC 9110 [\#769](https://github.com/apache/arrow-rs-object-store/issues/769)
+- WriteMultipart::finish should abort after part upload failure [\#818](https://github.com/apache/arrow-rs-object-store/issues/818)
+- The 1.85 MSRV is inaccurate with all features [\#811](https://github.com/apache/arrow-rs-object-store/issues/811)
+- When the backend service returns an HTTP 500, the object store panics [\#414](https://github.com/apache/arrow-rs-object-store/issues/414)
+
+**Documentation updates:**
+
+- \[object-store\]: update release schedule [\#834](https://github.com/apache/arrow-rs-object-store/pull/834) ([alamb](https://github.com/alamb))
+- Add doc example for multipart upload to `GoogleCloudStorage::create_multipart` [\#803](https://github.com/apache/arrow-rs-object-store/pull/803) ([alamb](https://github.com/alamb))
+- Add doc example for multipart upload to `MicrosoftAzure::create_multipart` [\#802](https://github.com/apache/arrow-rs-object-store/pull/802) ([alamb](https://github.com/alamb))
+- Add doc example for multipart upload to AmazonS3::create\_multipart [\#801](https://github.com/apache/arrow-rs-object-store/pull/801) ([alamb](https://github.com/alamb))
 
 **Closed issues:**
 
-- Bump quick-xml to 0.41.0 for RustSec advisories [\#787](https://github.com/apache/arrow-rs-object-store/issues/787)
+- Regression: `ClientOptions` no longer `UnwindSafe`/`RefUnwindSafe` after custom DNS resolver support \(\#728\) [\#835](https://github.com/apache/arrow-rs-object-store/issues/835)
+- Using `PutMode::Create` on Azure puts doesn't return `AlreadyExists` on failure [\#829](https://github.com/apache/arrow-rs-object-store/issues/829)
+- Release object store `0.14.1` \(non-breaking\) - Target August 2026 [\#761](https://github.com/apache/arrow-rs-object-store/issues/761)
+- Expose underlying object store capabilities \(e.g. ordered listing, negative ranges\) [\#675](https://github.com/apache/arrow-rs-object-store/issues/675)
 
 **Merged pull requests:**
 
-- Pin Rust toolchain to 1.97.0 and fix clippy [\#799](https://github.com/apache/arrow-rs-object-store/pull/799) ([alamb](https://github.com/alamb))
-- chore: reduce lock hold time in DefaultObjectStoreRegistry::deregister [\#792](https://github.com/apache/arrow-rs-object-store/pull/792) ([kszucs](https://github.com/kszucs))
-- Do not explicitly add `Host` header when making requests with  S3Builder [\#790](https://github.com/apache/arrow-rs-object-store/pull/790) ([ntjohnson1](https://github.com/ntjohnson1))
-- impl HttpError::new\_boxed to provide user with ability to ctor from already boxed error [\#789](https://github.com/apache/arrow-rs-object-store/pull/789) ([DoumanAsh](https://github.com/DoumanAsh))
-- build\(deps\): update quick-xml requirement from 0.40.1 to 0.41.0 [\#785](https://github.com/apache/arrow-rs-object-store/pull/785) ([dependabot[bot]](https://github.com/apps/dependabot))
-- feat: add deregister to ObjectStoreRegistry [\#784](https://github.com/apache/arrow-rs-object-store/pull/784) ([kszucs](https://github.com/kszucs))
-- Cache Azure user delegation key for SAS signing [\#781](https://github.com/apache/arrow-rs-object-store/pull/781) ([emilk](https://github.com/emilk))
-- fix\(aws\): recognize S3 dual-stack endpoints in URL parsing [\#780](https://github.com/apache/arrow-rs-object-store/pull/780) ([a10y](https://github.com/a10y))
-- Coalesce contiguous ranges in `LocalFileSystem::get_ranges` [\#777](https://github.com/apache/arrow-rs-object-store/pull/777) ([Dandandan](https://github.com/Dandandan))
-- Update copyright year in NOTICE.txt [\#772](https://github.com/apache/arrow-rs-object-store/pull/772) ([kevinjqliu](https://github.com/kevinjqliu))
-- fix: quote ETags per RFC 9110 in InMemory and LocalFileSystem [\#770](https://github.com/apache/arrow-rs-object-store/pull/770) ([bidord](https://github.com/bidord))
-- build\(deps\): bump actions/checkout from 6 to 7 [\#768](https://github.com/apache/arrow-rs-object-store/pull/768) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump taiki-e/install-action from 2.85.5 to 2.86.1 [\#842](https://github.com/apache/arrow-rs-object-store/pull/842) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Restore `UnwindSafe`/`RefUnwindSafe` on `ClientOptions` by bounding `DnsResolver` [\#836](https://github.com/apache/arrow-rs-object-store/pull/836) ([alamb](https://github.com/alamb))
+- Return AlreadyExists in azure backend when using PutMode::Create and precondition fails [\#830](https://github.com/apache/arrow-rs-object-store/pull/830) ([itsjunetime](https://github.com/itsjunetime))
+- Signer: reexport `url::Url` and `http::Method` types in the `signer` module [\#827](https://github.com/apache/arrow-rs-object-store/pull/827) ([Tpt](https://github.com/Tpt))
+- Derive `Clone` for `MicrosoftAzure` [\#825](https://github.com/apache/arrow-rs-object-store/pull/825) ([kylebarron](https://github.com/kylebarron))
+- build\(deps\): bump taiki-e/install-action from 2 to 2.85.5 [\#823](https://github.com/apache/arrow-rs-object-store/pull/823) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Fix \#818 - WriteMultipart::finish should abort after part upload failure [\#819](https://github.com/apache/arrow-rs-object-store/pull/819) ([anson-vandoren](https://github.com/anson-vandoren))
+- Support R2 URLs with jurisdictions [\#815](https://github.com/apache/arrow-rs-object-store/pull/815) ([Kharacternyk](https://github.com/Kharacternyk))
+- build\(deps\): update base64 requirement from 0.22 to 0.23 [\#813](https://github.com/apache/arrow-rs-object-store/pull/813) ([dependabot[bot]](https://github.com/apps/dependabot))
+- fix: restore 1.85 MSRV and fix MSRV CI [\#812](https://github.com/apache/arrow-rs-object-store/pull/812) ([LDeakin](https://github.com/LDeakin))
+- build\(deps\): bump actions/setup-python from 6 to 7 [\#809](https://github.com/apache/arrow-rs-object-store/pull/809) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump actions/setup-node from 6 to 7 [\#804](https://github.com/apache/arrow-rs-object-store/pull/804) ([dependabot[bot]](https://github.com/apps/dependabot))
+- feat: presigned URLs with extra query params and signed headers \(SignedUrlOptions\) [\#771](https://github.com/apache/arrow-rs-object-store/pull/771) ([zfarrell](https://github.com/zfarrell))
+- feat: Support custom DNS resolver [\#728](https://github.com/apache/arrow-rs-object-store/pull/728) ([kdn36](https://github.com/kdn36))
 
 
 
