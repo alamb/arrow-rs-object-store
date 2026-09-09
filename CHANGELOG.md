@@ -39,6 +39,7 @@
 
 **Documentation updates:**
 
+- Docs: point users uploading large objects at the multipart API [\#839](https://github.com/apache/arrow-rs-object-store/pull/839) ([alamb](https://github.com/alamb))
 - \[object-store\]: update release schedule [\#834](https://github.com/apache/arrow-rs-object-store/pull/834) ([alamb](https://github.com/alamb))
 - Add doc example for multipart upload to `GoogleCloudStorage::create_multipart` [\#803](https://github.com/apache/arrow-rs-object-store/pull/803) ([alamb](https://github.com/alamb))
 - Add doc example for multipart upload to `MicrosoftAzure::create_multipart` [\#802](https://github.com/apache/arrow-rs-object-store/pull/802) ([alamb](https://github.com/alamb))
@@ -53,6 +54,7 @@
 
 **Merged pull requests:**
 
+- feat: retry failed multipart part uploads [\#849](https://github.com/apache/arrow-rs-object-store/pull/849) ([criccomini](https://github.com/criccomini))
 - build\(deps\): bump taiki-e/install-action from 2.85.5 to 2.86.1 [\#842](https://github.com/apache/arrow-rs-object-store/pull/842) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Restore `UnwindSafe`/`RefUnwindSafe` on `ClientOptions` by bounding `DnsResolver` [\#836](https://github.com/apache/arrow-rs-object-store/pull/836) ([alamb](https://github.com/alamb))
 - Return AlreadyExists in azure backend when using PutMode::Create and precondition fails [\#830](https://github.com/apache/arrow-rs-object-store/pull/830) ([itsjunetime](https://github.com/itsjunetime))
