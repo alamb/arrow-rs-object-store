@@ -29,8 +29,8 @@
 
 set -e
 
-SINCE_TAG="v0.14.0"
-FUTURE_RELEASE="v0.14.1"
+SINCE_TAG="v0.14.1"
+FUTURE_RELEASE="v0.14.2"
 
 SOURCE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SOURCE_TOP_DIR="$(cd "${SOURCE_DIR}/../../" && pwd)"
