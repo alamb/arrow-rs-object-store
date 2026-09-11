@@ -19,7 +19,7 @@
 
 # Changelog
 
-## [v0.14.2](https://github.com/apache/arrow-rs-object-store/tree/v0.14.2) (2026-09-09)
+## [v0.14.2](https://github.com/apache/arrow-rs-object-store/tree/v0.14.2) (2026-09-11)
 
 [Full Changelog](https://github.com/apache/arrow-rs-object-store/compare/v0.14.1...v0.14.2)
 
@@ -33,6 +33,7 @@
 
 **Fixed bugs:**
 
+- Incomplete ASF license header in `src/client/s3.rs` \(caused -1 vote on 0.14.2 RC1\) [\#853](https://github.com/apache/arrow-rs-object-store/issues/853)
 - WriteMultipart::finish should abort after part upload failure [\#818](https://github.com/apache/arrow-rs-object-store/issues/818)
 - The 1.85 MSRV is inaccurate with all features [\#811](https://github.com/apache/arrow-rs-object-store/issues/811)
 - When the backend service returns an HTTP 500, the object store panics [\#414](https://github.com/apache/arrow-rs-object-store/issues/414)
@@ -54,6 +55,7 @@
 
 **Merged pull requests:**
 
+- Restore missing first line of ASF license header in `src/client/s3.rs` [\#854](https://github.com/apache/arrow-rs-object-store/pull/854) ([alamb](https://github.com/alamb))
 - feat: retry failed multipart part uploads [\#849](https://github.com/apache/arrow-rs-object-store/pull/849) ([criccomini](https://github.com/criccomini))
 - build\(deps\): bump taiki-e/install-action from 2.85.5 to 2.86.1 [\#842](https://github.com/apache/arrow-rs-object-store/pull/842) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Restore `UnwindSafe`/`RefUnwindSafe` on `ClientOptions` by bounding `DnsResolver` [\#836](https://github.com/apache/arrow-rs-object-store/pull/836) ([alamb](https://github.com/alamb))
